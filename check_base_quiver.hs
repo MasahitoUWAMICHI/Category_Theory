@@ -1,4 +1,4 @@
-import "src/base.hs"
+import CategoryBase
 
 instance Quiver BoolQuiver where
     data QuiverData BoolQuiver = QuiverData { vertices = [True, False], arrows = [TrueToFalse, FalseToTrue], source = \case TrueToFalse -> True; FalseToTrue -> False, target = \case TrueToFalse -> False; FalseToTrue -> True }
