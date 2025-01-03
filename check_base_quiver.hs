@@ -1,13 +1,18 @@
 import CategoryBase
 
-instance Quiver BoolQuiver where
-    data QuiverData BoolQuiver = QuiverData { vertices = [True, False], arrows = [TrueToFalse, FalseToTrue], source = \case TrueToFalse -> True; FalseToTrue -> False, target = \case TrueToFalse -> False; FalseToTrue -> True }
+instance QuiverData Bool where
+    vertices _ = [True, False]
+    arrows _ = [TrueToFalse, FalseToTrue]
+    source _ TrueToFalse = True
+    source _ FalseToTrue = False
+    target _ TrueToFalse = False
+    target _ FalseToTrue = True
 
 main = do
-    print $ vertices BoolQuiver
-    print $ arrows BoolQuiver
-    print $ source BoolQuiver TrueToFalse
-    print $ target BoolQuiver TrueToFalse
-    print $ source BoolQuiver FalseToTrue
-    print $ target BoolQuiver FalseToTrue
+    print $ vertices Bool
+    print $ arrows Bool
+    print $ source Bool TrueToFalse
+    print $ target Bool TrueToFalse
+    print $ source Bool FalseToTrue
+    print $ target Bool FalseToTrue
 
